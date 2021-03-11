@@ -1,10 +1,9 @@
-
-
 import pandas as pd
 import os
 from bs4 import BeautifulSoup as bs
 from urllib.request import urlopen
 from splinter import Browser
+import time
 from webdriver_manager.chrome import ChromeDriverManager
 
 def init():
