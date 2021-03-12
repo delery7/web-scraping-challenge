@@ -11,7 +11,7 @@ def init():
     browser = Browser('chrome', **executable_path, headless=False)
     return browser
 
-def scrape():
+def scrape_news():
     browser=init()
 
     url = 'https://mars.nasa.gov/news/'
@@ -28,10 +28,10 @@ def scrape():
 
     browser.quit()
 
-    return news_para
-    return news_title
+    return news_para, news_title
     
     # # Splinter to image: https://data-class-jpl-space.s3.amazonaws.com/JPL_Space/index.html
+def scrape_url():
 
     browser=init()
     url = 'https://data-class-jpl-space.s3.amazonaws.com/JPL_Space/index.html'
@@ -52,10 +52,10 @@ def scrape():
 
     return featured_image_url
 
+def scrape_table():
     # # Pulling in table from: https://space-facts.com/mars/
-
+    browser=init()
     url = 'https://space-facts.com/mars/'
-    # browser.visit(url)
 
     tables = pd.read_html(url)
     tables
@@ -69,6 +69,7 @@ def scrape():
     return html_table
 
     # #  dictionary of urls from: https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars
+def scrape_dict():
 
     browser=init()
     url = 'https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars'
@@ -98,6 +99,14 @@ def scrape():
 
     return image_urls
 
+def scrape_all():
+    data_results = {"News_inputs": scrape_news(),
+                 "Featured_image": scrape_url(),
+                 "mars_table": scrape_table(),
+                 "image_urls": scrape_dict() }
+    return data_results
+
+# print(scrape_all())  -- if name = main
 
 
 
