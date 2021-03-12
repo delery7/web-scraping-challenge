@@ -62,7 +62,7 @@ def scrape_table():
     df = tables[0]
     html_table = df.to_html()
     html_table=html_table.replace('\n', '')
-    df.to_html('MarsTable.html')
+    # df.to_html('MarsTable.html')
    
     browser.quit()
 

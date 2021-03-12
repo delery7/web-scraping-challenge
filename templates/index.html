@@ -36,7 +36,8 @@
     <div class="col-md-4">
       <div class="container1">
         <h3 class="text-center">Mars Facts</h3>
-        <table border="1" class="dataframe" html="{{ mars.mars_table }}">
+        <table border="1" class="dataframe" >
+          <td id={{ mars.mars_table | safe}} </td>
           <!-- <thead>
             <tr style="text-align: right;">
               <th></th>
